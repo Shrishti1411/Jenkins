@@ -1,9 +1,15 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh 'javac BubbleSort.java'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'java BubbleSort'
             }
         }
     }
